@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <cstring>
 #include <initializer_list>
+#include <iomanip>
 #include <map>
 #include <memory>
 #include <string>
@@ -9568,7 +9569,8 @@ inline enable_if_t<std::is_floating_point<FloatType>::value> to_string(FloatType
     }
 
     std::ostringstream oss;
-    oss << f;
+    oss.setf(std::ios::fixed);
+    oss << std::setprecision(6) << f;
     s = oss.str();
 }
 
